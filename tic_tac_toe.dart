@@ -23,7 +23,7 @@ class TicTacToe {
   }
   bool makeMove(int move) {
     if (move < 1 || move > 9) {
-      print('Invalid move. Please enter a number between 1 and 9.');
+      print('Invallid move. Please enter a number between 1 and 9.');
       return false;
     }
 
@@ -31,7 +31,7 @@ class TicTacToe {
     int col = (move - 1) % 3; // also the column will be the remain division of 3
 
     if (board[row][col] != ' ') { // the position must be empty and not played before
-      print('Invalid move. Cell already occupied. Please enter a valid move.');
+      print('Invallid move. Position already occupied. Please enter a vallid move.');
       return false;
     }
 
@@ -76,21 +76,28 @@ class TicTacToe {
   void playGame() {
     int move;
 
-    do {
-      printBoard();  // starting with printing the board 
+     do {
+      printBoard();
 
-      print('you are the player $currentPlayer, please enter your move: ');
+      print('You are the player $currentPlayer, please enter your move [1-9], or enter "restart" to start a new game: ');
+      var input = stdin.readLineSync()?.toLowerCase();
+
+      if (input == 'restart') {
+        break;
+      }
+
       try {
-        move = int.parse(stdin.readLineSync()!); // take the input from user and check if it is an integer 
+        move = int.parse(input!); // if the input not restart and not integer so its invallied
       } catch (e) {
-        print('Invalid input. Please enter a valid move.'); 
+        print('Invallid input. Please enter a vallid move.');
         continue;
       }
+
 
       if (makeMove(move)) {
         if (checkForWin()) {
           printBoard();
-          print('Player $currentPlayer wins!'); 
+          print('Congrats, the player $currentPlayer wins!'); 
           break;
         }
 
