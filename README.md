@@ -1,2 +1,8 @@
 # Tic-Tac-Toe
-Tic-Tac-Toe game between two players using Dart language. 
+
+Welcome to the Tic-Tac-Toe console game implemented in Dart!
+
+## How to Run
+Use this (https://replit.com/@MaysNajjar/Tic-Tac-Toe) online editor to play this game.
+
+Enjoy !! 
